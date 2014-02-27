@@ -1,6 +1,6 @@
 {
   "name": "bcms-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An easy-to-use JS SDK for BCMS (Baidu Cloud Message Service)",
   "keywords": [
     "baidu",
@@ -25,6 +25,6 @@
   },
   "readmeFilename": "README.md",
   "bugs": {
-    "url": "https://github.com/LiuJi-Jim/bcms-js"
+    "url": "https://github.com/LiuJi-Jim/bcms-js/issues"
   }
 }
