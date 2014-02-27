@@ -1,6 +1,6 @@
 {
   "name": "bcms-js",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "An easy-to-use JS SDK for BCMS (Baidu Cloud Message Service)",
   "keywords": [
     "baidu",
@@ -16,7 +16,7 @@
     "type": "git",
     "url": "git@github.com:LiuJi-Jim/bcms-js.git"
   },
-  "devDependencies": {
+  "dependencies": {
     "request": ">= 2.34"
   },
   "license": "MIT",
