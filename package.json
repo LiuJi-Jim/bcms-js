@@ -1,6 +1,6 @@
 {
   "name": "bcms-js",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "An easy-to-use JS SDK for BCMS (Baidu Cloud Message Service)",
   "keywords": [
     "baidu",
