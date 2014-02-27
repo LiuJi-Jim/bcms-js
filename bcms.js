@@ -4,13 +4,17 @@ var request = require('request');
 var ak = process.env.BAE_ENV_AK;              // 用户名
 var sk = process.env.BAE_ENV_SK;              // 密码
 
-exports = module.exports = function(queue_name){
+var BCMS = function(queue_name){
+  if (!(this instanceof BCMS)) return new BCMS(queue_name);
+
   this.queue_name = queue_name;
 };
+
+exports = module.exports = BCMS;
 var bcmsBaseUrl = 'http://bcms.api.duapp.com';
 var bcmsBasePath = '/rest/2.0/bcms/';
 
-exports.prototype.request = function(method, api, params, callback){
+BCMS.prototype.request = function(method, api, params, callback){
   var timestamp = params.timestamp = parseInt((new Date()).getTime() / 1000);
   params.method = api;
   params.client_id = ak;
@@ -32,10 +36,10 @@ exports.prototype.request = function(method, api, params, callback){
     callback(err, body);
   });
 };
-exports.prototype.buildUrl = function(){
+BCMS.prototype.buildUrl = function(){
   return bcmsBaseUrl + bcmsBasePath + this.queue_name;
 };
-exports.prototype.signature = function(method, url, params){
+BCMS.prototype.signature = function(method, url, params){
   var keys = [];
   for (var key in params){
     keys.push(key);
@@ -54,7 +58,7 @@ exports.prototype.signature = function(method, url, params){
 
   return body;
 };
-exports.prototype.mail = function(from, to, subject, content, callback){
+BCMS.prototype.mail = function(from, to, subject, content, callback){
   if (!Array.isArray(to)) to = [to];
   return this.request('POST', 'mail', {
     message: content,
